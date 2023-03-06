@@ -8,4 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 class Flora extends Model
 {
     use HasFactory;
+   // protected $fillable=['name','number','note'];
 }

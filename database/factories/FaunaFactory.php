@@ -20,7 +20,7 @@ class FaunaFactory extends Factory
             //
             'name'=>fake()->name,
             'user_id'=>User::pluck('id')->random(),
-            'quantity'=>fake()->numberBetween(2,10),
+            'number'=>fake()->numberBetween(2,10),
             'disease'=>fake()->sentence(),
             
         ];

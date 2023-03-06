@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Flora;
 use Illuminate\Http\Request;
 
 class FloraController extends Controller
@@ -13,7 +14,8 @@ class FloraController extends Controller
      */
     public function index()
     {
-        return view('options.flora.index');
+        $Floras=Flora::all();
+        return view('options.flora.index',['floras'=>$Floras]);
     }
 
     /**
@@ -24,6 +26,7 @@ class FloraController extends Controller
     public function create()
     {
         //
+        return view('options.flora.create');
     }
 
     /**
@@ -35,6 +38,18 @@ class FloraController extends Controller
     public function store(Request $request)
     {
         //
+        $request->validate([
+            'name'=>['required', 'min:2','max:100'],
+            'number'=>['required'],
+            'note'=>['required','max:255']
+        ]);
+        $flora=new Flora();
+        $flora->name=$request->name;
+        $flora->number=$request->number;
+        $flora->note=$request->note;
+
+        $flora->save();
+        return redirect()->route('flora.index');
     }
 
     /**
@@ -57,6 +72,9 @@ class FloraController extends Controller
     public function edit($id)
     {
         //
+        $flora=Flora::findorFail($id);
+
+        return view('options.flora.edit', ['flora'=>$flora]);
     }
 
     /**
@@ -69,6 +87,18 @@ class FloraController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $flora=Flora::findorFail($id);
+        $request->validate([
+            'name'=>['required'],
+
+        ]);
+        $flora->name=$request->name;
+        $flora->number=$request->number;
+        $flora->note=$request->note;
+
+        $flora->update();
+
+        return redirect()->route('flora.index')->with('updateMsg','Entry updated successfully');
     }
 
     /**
@@ -80,5 +110,8 @@ class FloraController extends Controller
     public function destroy($id)
     {
         //
+        $flora=Flora::findorFail($id);
+        $flora->delete();
+        return redirect()->route('flora.index')->with('delMsg', 'Crop deleted successfully');
     }
 }

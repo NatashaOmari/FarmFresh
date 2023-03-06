@@ -5,10 +5,10 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">Create Animal Page</div>
+                <div class="card-header">Create Crop Page</div>
 
                 <div class="card-body">
-                    <form method="POST" action="{{ route('fauna.store') }}" enctype="multipart/form-data">
+                    <form method="POST" action="{{ route('flora.store') }}" enctype="multipart/form-data">
                         @csrf
 
                         <div class="row mb-3">
@@ -42,19 +42,14 @@
                             <label for="note" class="col-md-4 col-form-label text-md-end">Farmer's Notes</label>
 
                             <div class="col-md-6">
-                              <textarea class="form-control @error('note') is invalid @enderror" name="note" id="note" rows="10"></textarea>
-                              @error('note')
-                              <div class="alert alert-danger">
-                                {{$message}}
-                              </div>
-                              @enderror
+                              <textarea class="form-control" name="note" id="note" rows="10"></textarea>
                             </div>
                         </div>
                         
                         <div class="row mb-0">
                             <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="btn btn-primary">
-                                    Create Animal
+                                    Create Crop
                                 </button>
                             </div>
                         </div>

@@ -18,6 +18,9 @@ class FloraFactory extends Factory
     {
         return [
             //
+            'name'=>fake()->name,
+            'number'=>fake()->numberBetween(1,5),
+            'note'=>fake()->paragraph(),
         ];
     }
 }

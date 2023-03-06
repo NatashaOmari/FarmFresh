@@ -21,7 +21,12 @@ Route::post('/option', [App\Http\Controllers\OptionController::class, 'chooseOpt
 Route::get('/option/fauna/index', [App\Http\Controllers\FaunaController::class, 'index'])->name('fauna.index');
 Route::get('/option/flora/index', [App\Http\Controllers\FloraController::class, 'index'])->name('flora.index');
 Route::get('/option/fauna/create', [App\Http\Controllers\FaunaController::class, 'create'])->name('fauna.create');
-Route::get('/option/fauna/create', [App\Http\Controllers\FaunaController::class, 'store'])->name('fauna.store');
+Route::post('/option/fauna/create', [App\Http\Controllers\FaunaController::class, 'store'])->name('fauna.store');
+Route::get('/option/flora/create', [App\Http\Controllers\FloraController::class, 'create'])->name('flora.create');
+Route::post('/option/flora/create', [App\Http\Controllers\FloraController::class, 'store'])->name('flora.store');
+Route::get('/option/flora/{id}/edit', [App\Http\Controllers\FloraController::class, 'edit'])->name('flora.edit');
+Route::put('/option/flora/{id}', [App\Http\Controllers\FloraController::class, 'update'])->name('flora.update');
+Route::delete('/option/flora/{id}', [App\Http\Controllers\FloraController::class, 'destroy'])->name('flora.destroy');
 
 //home routes
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

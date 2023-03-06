@@ -13,13 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('faunas', function (Blueprint $table) {
+        Schema::create('floras', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->constrained()->onDelete('CASCADE');
             $table->string('name');
-            $table->integer('quantity');
+            $table->integer('number');
             $table->string('note');
-            $table->mediumText('disease');
             $table->timestamps();
         });
     }
@@ -31,6 +29,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('faunas');
+        Schema::dropIfExists('floras');
     }
 };
