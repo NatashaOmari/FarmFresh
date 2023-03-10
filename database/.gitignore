@@ -1,5 +1,2 @@
 *.sqlite*
-$table->foreignId('user_id')->constrained()->onDelete('CASCADE');
-            $table->string('name');
-            $table->integer('number');
-            $table->string('note');
+
