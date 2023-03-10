@@ -7,7 +7,7 @@
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Custom Components:</h6>
             <a class="collapse-item" href="{{route('flora.create')}}">Add Flora</a>
-            <a class="collapse-item" href="{{route('fauna.index')}}">Show Flora</a>
+            <a class="collapse-item" href="{{route('flora.index')}}">Show Flora</a>
           </div>
         </div>
       </li>

@@ -31,7 +31,6 @@ class FloraPolicy
     public function view(User $user, Flora $flora)
     {
         //
-        return $user->id===$flora->user_id;
     }
 
     /**
@@ -55,7 +54,7 @@ class FloraPolicy
     public function update(User $user, Flora $flora)
     {
         //
-        return $user->id===$flora->user_id;
+        return $user->id === $flora->user_id;
     }
 
     /**
@@ -68,7 +67,7 @@ class FloraPolicy
     public function delete(User $user, Flora $flora)
     {
         //
-        return $user->id===$flora->user_id;
+        return $user->id === $flora->user_id;
     }
 
     /**
@@ -81,7 +80,7 @@ class FloraPolicy
     public function restore(User $user, Flora $flora)
     {
         //
-        return $user->id===$flora->user_id;
+        return $user->id === $flora->user_id;
     }
 
     /**
@@ -94,6 +93,6 @@ class FloraPolicy
     public function forceDelete(User $user, Flora $flora)
     {
         //
-        return $user->id===$flora->user_id;
+        return $user->id === $flora->user_id;
     }
 }

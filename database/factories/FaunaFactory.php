@@ -18,10 +18,10 @@ class FaunaFactory extends Factory
     {
         return [
             //
-            'name'=>fake()->name,
+           'name'=>fake()->name,
             'user_id'=>User::pluck('id')->random(),
-            'number'=>fake()->numberBetween(2,10),
-            'disease'=>fake()->sentence(),
+           'number'=>fake()->numberBetween(2,10),
+           'note'=>fake()->sentence(),
             
         ];
     }

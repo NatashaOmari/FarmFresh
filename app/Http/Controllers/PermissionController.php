@@ -1,11 +1,11 @@
 <?php
 
 namespace App\Http\Controllers;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Http\Request;
-use App\Models\Fauna;
 
-class FaunaController extends Controller
+use App\Models\Permission;
+use Illuminate\Http\Request;
+
+class PermissionController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +14,7 @@ class FaunaController extends Controller
      */
     public function index()
     {
-        return view('options.fauna.index');
+        //
     }
 
     /**
@@ -25,7 +25,6 @@ class FaunaController extends Controller
     public function create()
     {
         //
-        return view('options.fauna.create');
     }
 
     /**
@@ -37,29 +36,15 @@ class FaunaController extends Controller
     public function store(Request $request)
     {
         //
-        $request->validate([
-            'name' => ['required', 'min:2', 'max:100'],
-            'number' => ['required'],
-            'note' => ['required', 'max:255']
-        ]);
-        $fauna = new Fauna();
-        $fauna->name = $request->name;
-        $fauna->user_id=Auth::user()->id;
-        $fauna->number = $request->number;
-        $fauna->note = $request->note;
-
-        $fauna->save();
-
-        return redirect()->route('fauna.index');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\Permission  $permission
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Permission $permission)
     {
         //
     }
@@ -67,10 +52,10 @@ class FaunaController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\Permission  $permission
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Permission $permission)
     {
         //
     }
@@ -79,10 +64,10 @@ class FaunaController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\Models\Permission  $permission
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Permission $permission)
     {
         //
     }
@@ -90,10 +75,10 @@ class FaunaController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\Models\Permission  $permission
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Permission $permission)
     {
         //
     }

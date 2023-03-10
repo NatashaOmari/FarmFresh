@@ -13,13 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('faunas', function (Blueprint $table) {
-            $table->id();
-            $table->foreignId('user_id')->constrained()->onDelete('CASCADE');
-            $table->string('name');
-            $table->integer('number');
-            $table->string('note');
-            $table->mediumText('disease');
+        Schema::create('permission_user', function (Blueprint $table) {
+            $table->unique(['user_id','permission_id']);
+            $table->foreignId('user_id')->constraigned()->onDelete('CASCADE');
+            $table->foreignId('permission_id')->constraigned()->onDelete('CASCADE');
             $table->timestamps();
         });
     }
@@ -31,6 +28,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('faunas');
+        Schema::dropIfExists('permission_user');
     }
 };

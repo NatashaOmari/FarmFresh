@@ -47,9 +47,11 @@
                         <td>{{$flora->number}}</td>
                         <td>{{Str::Limit($flora->note,50,'...')}}</td>
                         <td>
+                          
                             <button class="btn btn-success">
                                 <a href="{{route('flora.edit',$flora->id)}}">update</a>
                             </button>
+                            
                         </td>
                         <td>
                             <form action="{{route('flora.destroy', $flora->id)}}" method="post">

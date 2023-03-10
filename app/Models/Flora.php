@@ -9,4 +9,7 @@ class Flora extends Model
 {
     use HasFactory;
    // protected $fillable=['name','number','note'];
+   public function user(){
+    return $this->belongsTo(User::class);
+}
 }

@@ -42,6 +42,25 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
     public function faunas(){
-        return $this->hasMany(Fauna::class);
+       return $this->hasMany(Fauna::class, 'user_id');
+   }
+
+   public function floras(){
+    return $this->hasMany(Flora::class);
+}
+public function roles(){
+    return $this->belongsToMany(Role::class);
+}
+public function permissions(){
+    return $this->belongsToMany(Permission::class);
+}
+
+public function hasRole(...$user_roles){
+    foreach($this->roles as $role){
+        if(in_array($role->name,$user_roles)){
+            return true;
+        }
+        return false;
     }
+}
 }

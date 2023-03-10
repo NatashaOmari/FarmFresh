@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Flora;
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\Auth;
 class FloraController extends Controller
 {
     /**
@@ -45,6 +45,7 @@ class FloraController extends Controller
         ]);
         $flora=new Flora();
         $flora->name=$request->name;
+        $flora->user_id=Auth::user()->id;
         $flora->number=$request->number;
         $flora->note=$request->note;
 
@@ -73,7 +74,7 @@ class FloraController extends Controller
     {
         //
         $flora=Flora::findorFail($id);
-
+        $this->authorize('update', $flora);
         return view('options.flora.edit', ['flora'=>$flora]);
     }
 
@@ -111,6 +112,7 @@ class FloraController extends Controller
     {
         //
         $flora=Flora::findorFail($id);
+        $this->authorize('delete', $flora);
         $flora->delete();
         return redirect()->route('flora.index')->with('delMsg', 'Crop deleted successfully');
     }
