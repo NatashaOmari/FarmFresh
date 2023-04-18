@@ -56,7 +56,7 @@
 
       <!-- Nav Item - Pages Collapse Menu -->
       
-      @if(Auth::user()->hasRole('Admin'))
+      @if(Auth::user()->hasRole('Admin','Farmer'))
       <x-admin-flora>
         
       </x-admin-flora>
