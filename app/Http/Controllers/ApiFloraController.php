@@ -28,10 +28,12 @@ class ApiFloraController extends Controller
         $flora->save();
         return "Crop saved";
     }
-    public function update(Request $request,$id) {
-        $flora=Flora::findorFail($id);
+    public function update(Request $request,string $id) {
+        $flora=Flora::find($id);
         $request->validate([
-
+            'name'=>['required', 'min:2','max:100'],
+            'number'=>['required'],
+            'note'=>['required','max:255']
         ]);
         $flora->name=$request->name;
         $flora->number=$request->number;
