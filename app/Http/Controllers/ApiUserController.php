@@ -26,7 +26,8 @@ class ApiUserController extends Controller
 
         return response ([
             'user'=>$user,
-            'token'=>$token
+            'token'=>$token,
+            'message'=> 'user registered successfully'
         ],201);
 
     }
